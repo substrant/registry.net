@@ -23,7 +23,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.1.1
 
     - name: 📦 Restore packages
-      run: nuget restore Starlight.sln
+      run: nuget restore Substrant.Registry.sln
 
     - name: 👷‍♂️ Build solution
       run: msbuild.exe Substrant.Registry.sln -p:Configuration=Release
