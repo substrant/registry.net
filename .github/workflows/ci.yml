@@ -13,11 +13,17 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: 👨‍💻 Checkout code
+    - name: Checkout code
       uses: actions/checkout@v2
 
     - name: 🛠️ Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
+
+    - name: 🛠️ Setup NuGet
+      uses: NuGet/setup-nuget@v1.1.1
+
+    - name: 📦 Restore packages
+      run: nuget restore Starlight.sln
 
     - name: 👷‍♂️ Build solution
       run: msbuild.exe Substrant.Registry.sln -p:Configuration=Release
